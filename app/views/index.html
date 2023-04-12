@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+  <meta name="generator" content="Jekyll v4.1.1" />
+  <title id="title-web">Student managerment</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/0.5.0/sweet-alert.min.css"> -->
+  <!-- Bootstrap core CSS -->
+  <link href="../../assets/lib/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="../../assets/css/index.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-md-4">
+        <div id="id-title-type-student">
+          <h1 class="mt-5 mb-5">
+            <i class="fa-solid fa-graduation-cap mr-3"></i>
+            Danh sách sinh viên
+          </h1>
+        </div>
+
+        <div id="id-title-type-employee">
+          <h1 class="mt-5 mb-5">
+            <i class="fa-solid fa-user mr-3"></i> Danh sách nhân viên
+          </h1>
+        </div>
+
+        <div id="id-title-type-customer">
+          <h1 class="mt-5 mb-5">
+            <i class="fa-solid fa-bag-shopping mr-3"></i>Danh sách khách hàng
+          </h1>
+        </div>
+
+        <!-- Button trigger modal -->
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-12">
+            <button id="btn-add-student" type="button" class="btn-chucnang-them btn btn-primary mb-3 text-white"
+              data-toggle="modal" data-target="#exampleModal">
+              Thêm sinh viên
+            </button>
+
+            <button id="btn-add-employee" type="button" class="btn-chucnang-them btn btn-primary mb-3 text-white"
+              data-toggle="modal" data-target="#exampleModal">
+              Thêm nhân viên
+            </button>
+
+            <button id="btn-add-customer" type="button" class="btn-chucnang-them btn btn-primary mb-3 text-white"
+              data-toggle="modal" data-target="#exampleModal">
+              Thêm khách hàng
+            </button>
+
+            <button id="btn-add-customer" type="button" class="btn-chucnang-sap-xep btn btn-info mb-3 text-white">
+              Sắp xếp tăng dần
+            </button>
+
+            <button id="btn-add-customer" type="button" class="btn-chucnang-sap-xep-diem-tang-dan btn btn-info mb-3 text-white">
+              Sắp xếp điểm tăng dần
+            </button>
+
+
+          </div>
+
+          <div class="col-xl-1 col-lg-0 col-md-0"></div>
+
+          <div class="col-xl-7 col-lg-8 col-md-12 flex-md-column">
+            <div class="d-flex justify-content-end" aria-label="Basic mixed styles example">
+              <button id="btn-show-std" type="button" class="btn btn-outline-success ml-2 active">
+                <i class="fa-solid fa-graduation-cap mr-3"></i> Danh sách sinh
+                viên
+              </button>
+              <button id="btn-show-epl" type="button" class="btn btn-outline-success ml-2">
+                <i class="fa-solid fa-user mr-3"></i> Danh sách nhân viên
+              </button>
+              <button id="btn-show-ctm" type="button" class="btn btn-outline-success ml-2">
+                <i class="fa-solid fa-bag-shopping mr-3"></i> Danh sách khách
+                hàng
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-4 mt-4">
+          <input type="search" placeholder="Bạn đang tìm kiếm điều gì?" aria-describedby="button-addon6"
+            class="form-control" />
+          <div class="input-group-append">
+            <button id="button-addon6" type="submit" class="btn btn-info">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive ">
+          <table class="table table-striped table-sm mt-2 table-student" id="table-student">
+            <thead class="text-center rounded">
+              <tr class="bg-success text-white">
+                <th>Họ tên</th>
+                <th>Địa chỉ</th>
+                <th>Mã</th>
+                <th>Email</th>
+
+                <th>Điểm Toán</th>
+                <th>Điểm Lý</th>
+                <th>Điểm Hóa</th>
+                <th>Điểm Trung Bình</th>
+                <th>Chức năng</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-table-student"></tbody>
+          </table>
+
+          <table class="table table-striped table-sm mt-2 table-employee" id="table-employee">
+            <thead class="text-center">
+              <tr class="bg-success text-white">
+                <th>Họ tên</th>
+                <th>Địa chỉ</th>
+                <th>Mã</th>
+                <th>Email</th>
+
+                <th>Số ngày làm việc (Ngày)</th>
+                <th>Lương theo ngày ($)</th>
+                <th>Lương ($)</th>
+
+                <th>Chức năng</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-table-employee"></tbody>
+          </table>
+
+          <table class="table table-striped table-sm mt-2 table-customer" id="table-customer">
+            <thead class="text-center">
+              <tr class="bg-success text-white">
+                <th>Họ tên</th>
+                <th>Địa chỉ</th>
+                <th>Mã</th>
+                <th>Email</th>
+
+                <th>Tên công ty</th>
+                <th>Trị giá hoá đơn ($)</th>
+                <th>Đánh giá (Sao)</th>
+                <th>Chức năng</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-table-customer"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-dialog">
+        <div class="modal-content" style="margin-top: 100px">
+          <div class="modal-header">
+            <h5 class="modal-title" id="title-modal-student">Sinh viên</h5>
+            <h5 class="modal-title" id="title-modal-employee">Nhân viên</h5>
+            <h5 class="modal-title" id="title-modal-customer">Khách hàng</h5>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" id="person-form">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="inputName">Họ và tên</label>
+                  <input type="text" class="form-control" id="inputName" placeholder="Nhập họ và tên" value=""
+                    required />
+                  <div id="statusName" class="status"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="inputAddress">Địa chỉ</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Nhập địa chỉ" required />
+                  <div id="statusAddress" class="status"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="inputId">Mã</label>
+                  <input type="text" class="form-control" id="inputId" placeholder="Hệ thống tự động tạo mã" required
+                    disabled />
+                  <div id="statusId" class="status"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="inputEmail">Email</label>
+                  <input type="text" class="form-control" id="inputEmail" placeholder="Nhập email" value="" required />
+                  <div id="statusEmail" class="status"></div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="row" id="student-info">
+                    <div class="col-md-12 mb-3">
+                      <label for="inputMath">Điểm toán</label>
+                      <input type="text" class="form-control" id="inputMath" placeholder="Nhập điểm toán" value=""
+                        required />
+                      <div id="statusMath" class="status"></div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                      <label for="inputPhysics">Điểm lý</label>
+                      <input type="text" class="form-control" id="inputPhysics" placeholder="Nhập điểm lý" value=""
+                        required />
+                      <div id="statusPhysics" class="status"></div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                      <label for="inputChemistry">Điểm hoá</label>
+                      <input type="text" class="form-control" id="inputChemistry" placeholder="Nhập điểm toán" value=""
+                        required />
+                      <div id="statusChemistry" class="status"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="row" id="employee-info">
+                    <div class="col-md-12 mb-3">
+                      <label for="inputNumberOfWorkingDay">Số ngày làm việc</label>
+                      <input type="text" class="form-control" id="inputNumberOfWorkingDay"
+                        placeholder="Nhập số ngày làm việc" value="" required />
+                      <div id="statusMath" class="status"></div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                      <label for="inputDailyWage">Lương theo ngày</label>
+                      <input type="text" class="form-control" id="inputDailyWage" placeholder="Nhập lương theo ngày"
+                        value="" required />
+                      <div id="statusPhysics" class="status"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="row" id="customer-info">
+                    <div class="col-md-12 mb-3">
+                      <label for="inputCompanyName">Tên công ty</label>
+                      <input type="text" class="form-control" id="inputCompanyName" placeholder="Nhập tên công ty"
+                        value="" required />
+                      <div id="statusMath" class="status"></div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                      <label for="inputInvoiceValue">Trị giá hoá đơn</label>
+                      <input type="text" class="form-control" id="inputInvoiceValue" placeholder="Nhập trị giá hoá đơn"
+                        value="" required />
+                      <div id="statusPhysics" class="status"></div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                      <label for="inputRate">Đánh giá</label>
+                      <input type="text" class="form-control" id="inputRate" placeholder="Nhập đánh giá" value=""
+                        required />
+                      <div id="statusChemistry" class="status"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn-close-modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-warning" id="btn-update-data" onclick="updateDataPerson()">
+              Cập Nhật
+            </button>
+            <button type="button" class="btn btn-primary" id="btn-add-new-person">
+              Thêm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast fade" data-delay="10000" id="my-toast-id">
+      <div class="toast-header">
+        <strong class="me-auto">Nhập lại các trường sau</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body" id="my-toast-body"></div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="../../assets/lib/js/Jquery/jquery-3.5.1.slim.min.js"></script>
+  <script src="../../assets/lib/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <!-- <script type="module" src="../controllers/food-list.js"></script> -->
+  <script type="module" src="../controllers/index.js"></script>
+</body>
+
+</html>

@@ -26,7 +26,4 @@ export class Student extends Person {
           3
         ).toFixed(1);
   };
-
-
-  
 }

@@ -31,34 +31,37 @@ export class Validation {
     const addressValue = this.inputAddress.value.trim();
     const emailValue = this.inputEmail.value.trim();
 
-    if (
-      nameValue === "" ||
-      nameValue.length < 3 ||
-      nameValue.length > 50 ||
-      !/^[A-Z][a-z]*( [A-Z][a-z]*){0,2}$/.test(nameValue)
-    ) {
+    if (nameValue === "" || !/^[a-zA-ZÀ-ỹ ]+$/.test(nameValue)) {
       this.notification += `
                 <div class="mb-1">
                   <h6 style="color: red; margin: 0; padding: 0;">Tên</h6>
-                  <p>Tên chỉ được chứa các ký tự chữ và chữ cái đầu phải viết hoa. Tên phải dài từ 3 đến 50 ký tự.</p>
+                  <p>Tên không hợp lệ.</p>
                 </div>`;
       valid = false;
     } else {
       this.notification += "";
     }
 
-    if (!/^[a-zA-Z0-9\s,'-]{5,100}$/.test(addressValue)) {
+    if (
+      addressValue === "" ||
+      !/^[a-zA-ZÀ-ỹ0-9\s#,'-\/.()]+$/.test(addressValue)
+    ) {
       this.notification += `
                 <div class="mb-1">
                   <h6 style="color: red; margin: 0; padding: 0;">Địa chỉ</h6>
-                  <p>Địa chỉ không hợp lệ. Địa chỉ phải dài từ 5 đến 100 ký tự và chỉ chứa các ký tự chữ, số, khoảng trắng, dấu phẩy và dấu gạch ngang.</p>
+                  <p>Địa chỉ không hợp lệ.</p>
                 </div>`;
       valid = false;
     } else {
       this.notification += "";
     }
 
-    if (emailValue === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    if (
+      emailValue === "" ||
+      !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        emailValue
+      )
+    ) {
       this.notification += `
                 <div class="mb-1">
                   <h6 style="color: red; margin: 0; padding: 0;">Email</h6>

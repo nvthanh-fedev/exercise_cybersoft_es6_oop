@@ -7,11 +7,7 @@ import { Validation } from "../utils/Validation.js";
 const personList = new ListPerson();
 const valid = new Validation();
 
-personList.getStore(); //lấy storage
-// personList.renderTableSinhVien("#tbody-table-student");
-// personList.renderTableNhanVien("#tbody-table-employee");
-// personList.renderTableKhachHang("#tbody-table-customer");
-
+personList.getStore();
 window.addEventListener("load", (e) => {
   showAllStudent();
 });
@@ -25,9 +21,6 @@ const btnShowTableStudent = getElement("#btn-show-std");
 const btnShowTableEmployee = getElement("#btn-show-epl");
 const btnShowTableCustomer = getElement("#btn-show-ctm");
 
-const btnChucNangSua = getElement(".btn-chucnang-sua");
-const btnChucNangThem = getElement(".btn-chucnang-them");
-
 const elementsStudents = createAttributeArrayForIds("student");
 const elementsEmployees = createAttributeArrayForIds("employee");
 const elementsCustomers = createAttributeArrayForIds("customer");
@@ -35,10 +28,6 @@ const elementsCustomers = createAttributeArrayForIds("customer");
 const btnUpdateData = document.getElementById("btn-update-data");
 
 const btnAddNewPerson = getElement("#btn-add-new-person");
-
-const addStudentButton = getElement("#btn-add-student");
-const addEmployeeButton = getElement("#btn-add-employee");
-const addCustomerButton = getElement("#btn-add-customer");
 
 const inputName = document.getElementById("inputName");
 const inputAddress = document.getElementById("inputAddress");
@@ -54,14 +43,103 @@ const inputCompanyName = document.getElementById("inputCompanyName");
 const inputInvoiceinput = document.getElementById("inputInvoiceValue");
 const inputRate = document.getElementById("inputRate");
 
-const btnSortScoreAscending = document.getElementById(
-  "btn-chucnang-sap-xep-diem-tang-dan"
+const btnSortNameStudent = document.getElementById(
+  "btn-chuc-nang-sap-xep-ten-giam-dan-student"
 );
 
-// btnSortScoreAscending.addEventListener("click", () => {
-//   personList.renderTableSinhVien("#tbody-table-student");
-// });
+btnSortNameStudent.addEventListener("click", () => {
+  personList.renderTableSinhVien("#tbody-table-student", "name", true);
+});
 
+const btnSortScoreStudent = document.getElementById(
+  "btn-chuc-nang-sap-xep-diem-trung-binh-giam-dan-student"
+);
+
+btnSortScoreStudent.addEventListener("click", () => {
+  personList.renderTableSinhVien("#tbody-table-student", "average", true);
+});
+
+const btnSortMathScoreStudent = document.getElementById(
+  "btn-chuc-nang-sap-xep-diem-toan-giam-dan-student"
+);
+
+btnSortMathScoreStudent.addEventListener("click", () => {
+  personList.renderTableSinhVien("#tbody-table-student", "math", true);
+});
+
+const btnSortPhysicsScoreStudent = document.getElementById(
+  "btn-chuc-nang-sap-xep-diem-ly-giam-dan-student"
+);
+
+btnSortPhysicsScoreStudent.addEventListener("click", () => {
+  personList.renderTableSinhVien("#tbody-table-student", "physics", true);
+});
+
+const btnSortChemistryScoreStudent = document.getElementById(
+  "btn-chuc-nang-sap-xep-diem-hoa-giam-dan-student"
+);
+
+btnSortChemistryScoreStudent.addEventListener("click", () => {
+  personList.renderTableSinhVien("#tbody-table-student", "chemistry", true);
+});
+
+const btnSortNameEmployee = document.getElementById(
+  "btn-chuc-nang-sap-xep-ten-giam-dan-employee"
+);
+
+btnSortNameEmployee.addEventListener("click", () => {
+  personList.renderTableNhanVien("#tbody-table-employee", "name", true);
+});
+
+const btnSortDays = document.getElementById(
+  "btn-chuc-nang-sap-xep-so-ngay-lam-viec-giam-dan-employee"
+);
+
+btnSortDays.addEventListener("click", () => {
+  personList.renderTableNhanVien("#tbody-table-employee", "days", true);
+});
+
+const btnSortSalaryPerDay = document.getElementById(
+  "btn-chuc-nang-sap-xep-luong-tren-ngay-giam-dan-employee"
+);
+
+btnSortSalaryPerDay.addEventListener("click", () => {
+  personList.renderTableNhanVien("#tbody-table-employee", "salaryPerDay", true);
+});
+
+const btnSortSalary = document.getElementById(
+  "btn-chuc-nang-sap-xep-luong-giam-dan-employee"
+);
+
+btnSortSalary.addEventListener("click", () => {
+  personList.renderTableNhanVien("#tbody-table-employee", "salary", true);
+});
+
+const btnSortNameCustomer = document.getElementById(
+  "btn-chuc-nang-sap-xep-ten-giam-dan-customer"
+);
+
+btnSortNameCustomer.addEventListener("click", () => {
+  personList.renderTableKhachHang("#tbody-table-customer", "name", true);
+});
+
+const btnSortTriGiaHoaDon = document.getElementById(
+  "btn-chuc-nang-sap-xep-tri-gia-hoa-don-giam-dan-customer"
+);
+
+btnSortTriGiaHoaDon.addEventListener("click", () => {
+  personList.renderTableKhachHang("#tbody-table-customer", "hd", true);
+});
+
+const btnSortRate = document.getElementById(
+  "btn-chuc-nang-sap-xep-danh-gia-giam-dan-customer"
+);
+
+btnSortRate.addEventListener("click", () => {
+  personList.renderTableKhachHang("#tbody-table-customer", "rate", true);
+});
+
+const addStudentButton = getElement("#btn-add-student");
 addStudentButton.addEventListener("click", () => {
   statusForm = "add";
   statusTypePerson = "student";
@@ -69,13 +147,14 @@ addStudentButton.addEventListener("click", () => {
   console.log(statusForm, "   ", statusTypePerson);
 });
 
+const addEmployeeButton = getElement("#btn-add-employee");
 addEmployeeButton.addEventListener("click", () => {
   statusForm = "add";
   statusTypePerson = "employee";
   statusAddPerson();
   console.log(statusForm, "   ", statusTypePerson);
 });
-
+const addCustomerButton = getElement("#btn-add-customer");
 addCustomerButton.addEventListener("click", () => {
   statusForm = "add";
   statusTypePerson = "customer";
@@ -107,10 +186,6 @@ function toggleClassForElementsByIds(elementIds, addClass) {
 
 const showAllStudent = () => {
   statusTypePerson = "student";
-  console.log(
-    "🚀 ~ file: index.js:74 ~ showAllStudent ~ statusTypePerson:",
-    statusTypePerson
-  );
   toggleClassForElementsByIds(elementsStudents, false);
   toggleClassForElementsByIds(elementsEmployees, true);
   toggleClassForElementsByIds(elementsCustomers, true);
@@ -118,11 +193,6 @@ const showAllStudent = () => {
 
 const showAllEmployee = () => {
   statusTypePerson = "employee";
-  console.log(
-    "🚀 ~ file: indexx.js:64 ~ showAllEmployee ~ statusTypePerson:",
-    statusTypePerson
-  );
-
   toggleClassForElementsByIds(elementsStudents, true);
   toggleClassForElementsByIds(elementsEmployees, false);
   toggleClassForElementsByIds(elementsCustomers, true);
@@ -130,11 +200,6 @@ const showAllEmployee = () => {
 
 const showAllCustomer = () => {
   statusTypePerson = "customer";
-  console.log(
-    "🚀 ~ file: indexx.js:73 ~ showAllCustomer ~ statusTypePerson:",
-    statusTypePerson
-  );
-
   toggleClassForElementsByIds(elementsStudents, true);
   toggleClassForElementsByIds(elementsEmployees, true);
   toggleClassForElementsByIds(elementsCustomers, false);
@@ -186,6 +251,7 @@ btnAddNewPerson.addEventListener("click", function () {
       inputName.value,
       inputAddress.value,
       inputEmail.value,
+      inputId.value,
       +inputMath.value,
       +inputPhysics.value,
       +inputChemistry.value
@@ -200,12 +266,13 @@ btnAddNewPerson.addEventListener("click", function () {
     }
 
     personList.addPerson(newStudent);
-    personList.renderTableSinhVien("#tbody-table-student");
+    personList.renderTableSinhVien("#tbody-table-student", "default");
   } else if (statusTypePerson === "employee") {
     let newEmployee = new Employee(
       inputName.value,
       inputAddress.value,
       inputEmail.value,
+      inputId.value,
       +inputNumberOfWorkingDay.value,
       +inputDailyWage.value
     );
@@ -219,12 +286,13 @@ btnAddNewPerson.addEventListener("click", function () {
     }
 
     personList.addPerson(newEmployee);
-    personList.renderTableNhanVien("#tbody-table-employee");
+    personList.renderTableNhanVien("#tbody-table-employee", "");
   } else {
     let newCustomer = new Customer(
       inputName.value,
       inputAddress.value,
       inputEmail.value,
+      inputId.value,
       inputCompanyName.value,
       +inputInvoiceinput.value,
       +inputRate.value
@@ -239,10 +307,10 @@ btnAddNewPerson.addEventListener("click", function () {
     }
 
     personList.addPerson(newCustomer);
-    personList.renderTableKhachHang("#tbody-table-customer");
+    personList.renderTableKhachHang("#tbody-table-customer", "");
   }
 
-  showToastValidation();
+  // showToastValidation();
 
   personList.saveListPersonsToLocalStorage();
 
@@ -257,10 +325,11 @@ const showToastValidation = () => {
   toastList.forEach((toast) => toast.show());
 };
 
-window.updateDataPerson = function () {
+window.updateDataPerson = () => {
   console.log("cap nhat deee");
+
   if (statusTypePerson === "student") {
-    let updateStudent = new Student(
+    const updateStudent = new Student(
       inputName.value,
       inputAddress.value,
       inputEmail.value,
@@ -269,21 +338,17 @@ window.updateDataPerson = function () {
       +inputPhysics.value,
       +inputChemistry.value
     );
-
-    let checkValidStudent = valid.validateForm("student");
-
+    const checkValidStudent = valid.validateForm("student");
     if (!checkValidStudent) {
       showToastValidation();
       return;
     }
 
-    personList.updatePerson(updateStudent, "student");
-
+    personList.updatePerson(updateStudent);
     console.log("🚀 ~ file: index.js:172 ~ updateStudent:", updateStudent);
-
-    personList.renderTableSinhVien("#tbody-table-student");
+    personList.renderTableSinhVien("#tbody-table-student", "default");
   } else if (statusTypePerson === "employee") {
-    let updateEmployee = new Employee(
+    const updateEmployee = new Employee(
       inputName.value,
       inputAddress.value,
       inputEmail.value,
@@ -291,20 +356,18 @@ window.updateDataPerson = function () {
       +inputNumberOfWorkingDay.value,
       +inputDailyWage.value
     );
-
     console.log("🚀 ~ file: index.js:172 ~ new employee:", updateEmployee);
 
-    let checkValidEmployee = valid.validateForm("employee");
-
+    const checkValidEmployee = valid.validateForm("employee");
     if (!checkValidEmployee) {
       showToastValidation();
       return;
     }
 
-    personList.updatePerson(updateEmployee, "employee");
+    personList.updatePerson(updateEmployee);
     personList.renderTableNhanVien("#tbody-table-employee");
   } else {
-    let updateCustomer = new Customer(
+    const updateCustomer = new Customer(
       inputName.value,
       inputAddress.value,
       inputEmail.value,
@@ -315,47 +378,44 @@ window.updateDataPerson = function () {
     );
     console.log("🚀 ~ file: index.js:172 ~ new customer:", updateCustomer);
 
-    let checkValidCustomer = valid.validateForm("customer");
-
+    const checkValidCustomer = valid.validateForm("customer");
     if (!checkValidCustomer) {
       showToastValidation();
       return;
     }
 
-    personList.updatePerson(updateCustomer, "customer");
+    personList.updatePerson(updateCustomer);
     personList.renderTableKhachHang("#tbody-table-customer");
   }
 
   personList.saveListPersonsToLocalStorage();
-
   console.log("🚀 ~ file: indexx.js:187 ~ personList:", personList);
 };
 
-window.remove = function (id) {
+window.remove = (id) => {
   console.log("id xoaaaa", id);
-
   personList.removePerson(id);
-
   if (statusTypePerson === "student") {
-    personList.renderTableSinhVien("#tbody-table-student");
+    personList.renderTableSinhVien("#tbody-table-student", "default");
   } else if (statusTypePerson === "employee") {
     personList.renderTableNhanVien("#tbody-table-employee");
   } else {
     personList.renderTableKhachHang("#tbody-table-customer");
   }
-
   personList.saveListPersonsToLocalStorage();
 };
 
-function statusAddPerson() {
+const statusAddPerson = () => {
+  document.getElementById("inputId").disabled = false;
   btnAddNewPerson.classList.remove("d-none");
   btnUpdateData.classList.add("d-none");
-}
+};
 
-function statusUpdatePerson() {
+const statusUpdatePerson = () => {
+  document.getElementById("inputId").disabled = true;
   btnAddNewPerson.classList.add("d-none");
   btnUpdateData.classList.remove("d-none");
-}
+};
 
 window.updatePerson = function (personId) {
   statusUpdatePerson();
@@ -404,10 +464,98 @@ window.updatePerson = function (personId) {
   console.log("Updated person list:", personList);
 };
 
-let btnCloseModal = document.getElementById("btn-close-modal");
+const btnCloseModal = document.getElementById("btn-close-modal");
 btnCloseModal.addEventListener("click", () => {
   $("#my-toast-id").toast("hide");
 
   document.getElementById("person-form").reset();
-  inputId.placeholder = "Hệ thống tự động tạo mã";
+  inputId.placeholder = "Nhập mã";
 });
+
+const inputSearch = document.querySelector("#input-search-keyword");
+
+inputSearch.addEventListener("input", () => {
+  const value = inputSearch.value;
+  console.log(
+    "🚀 ~ file: index.js:468 ~ inputSearch.addEventListener ~ value:",
+    value
+  );
+
+  const slugTuKhoa = stringToSlug(value);
+
+  if (statusTypePerson === "student") {
+    const arrFilter = personList
+      .getStudents(personList.persons)
+      .filter((sv) => {
+        const hoTen = stringToSlug(sv.name);
+        return hoTen.search(slugTuKhoa) !== -1;
+      });
+
+    personList.onlyRenderTableSinhVien(
+      arrFilter,
+      "#tbody-table-student",
+      "default"
+    );
+    return;
+  } else if (statusTypePerson === "employee") {
+    const arrFilter = personList
+      .getEmployees(personList.persons)
+      .filter((nv) => {
+        const hoTen = stringToSlug(nv.name);
+        return hoTen.search(slugTuKhoa) !== -1;
+      });
+
+    personList.onlyRenderTableNhanVien(
+      arrFilter,
+      "#tbody-table-employee",
+      "default"
+    );
+    return;
+  } else {
+    const arrFilter = personList
+      .getCustomers(personList.persons)
+      .filter((kh) => {
+        const hoTen = stringToSlug(kh.name);
+        return hoTen.search(slugTuKhoa) !== -1;
+      });
+
+    personList.onlyRenderTableKhachHang(
+      arrFilter,
+      "#tbody-table-customer",
+      "default"
+    );
+    return;
+  }
+});
+
+function stringToSlug(title) {
+  //Đổi chữ hoa thành chữ thường
+  let slug = title.toLowerCase();
+
+  //Đổi ký tự có dấu thành không dấu
+  slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, "a");
+  slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, "e");
+  slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, "i");
+  slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, "o");
+  slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, "u");
+  slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, "y");
+  slug = slug.replace(/đ/gi, "d");
+  //Xóa các ký tự đặt biệt
+  slug = slug.replace(
+    /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
+    ""
+  );
+  //Đổi khoảng trắng thành ký tự gạch ngang
+  slug = slug.replace(/ /gi, "-");
+  //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+  //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+  slug = slug.replace(/\-\-\-\-\-/gi, "-");
+  slug = slug.replace(/\-\-\-\-/gi, "-");
+  slug = slug.replace(/\-\-\-/gi, "-");
+  slug = slug.replace(/\-\-/gi, "-");
+  //Xóa các ký tự gạch ngang ở đầu và cuối
+  slug = "@" + slug + "@";
+  slug = slug.replace(/\@\-|\-\@|\@/gi, "");
+
+  return slug;
+}

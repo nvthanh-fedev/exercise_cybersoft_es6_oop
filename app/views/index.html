@@ -31,84 +31,143 @@
   <div class="container-fluid mt-5">
     <div class="row">
       <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-md-4">
-        <div id="id-title-type-student">
-          <h1 class="mt-5 mb-5">
-            <i class="fa-solid fa-graduation-cap mr-3"></i>
-            Danh sách sinh viên
-          </h1>
-        </div>
-
-        <div id="id-title-type-employee">
-          <h1 class="mt-5 mb-5">
-            <i class="fa-solid fa-user mr-3"></i> Danh sách nhân viên
-          </h1>
-        </div>
-
-        <div id="id-title-type-customer">
-          <h1 class="mt-5 mb-5">
-            <i class="fa-solid fa-bag-shopping mr-3"></i>Danh sách khách hàng
-          </h1>
-        </div>
-
         <!-- Button trigger modal -->
         <div class="row">
-          <div class="col-xl-4 col-lg-4 col-md-12">
-            <button id="btn-add-student" type="button" class="btn-chucnang-them btn btn-primary mb-3 text-white"
-              data-toggle="modal" data-target="#exampleModal">
-              Thêm sinh viên
-            </button>
+          <div class="col-12 flex-md-column">
+            <div id="id-title-type-student">
+              <h1>
+                <i class="fa-solid fa-graduation-cap mr-3"></i>
+                Danh sách sinh viên
+              </h1>
+            </div>
 
-            <button id="btn-add-employee" type="button" class="btn-chucnang-them btn btn-primary mb-3 text-white"
-              data-toggle="modal" data-target="#exampleModal">
-              Thêm nhân viên
-            </button>
+            <div id="id-title-type-employee">
+              <h1>
+                <i class="fa-solid fa-user mr-3"></i> Danh sách nhân viên
+              </h1>
+            </div>
 
-            <button id="btn-add-customer" type="button" class="btn-chucnang-them btn btn-primary mb-3 text-white"
-              data-toggle="modal" data-target="#exampleModal">
-              Thêm khách hàng
-            </button>
-
-            <button id="btn-add-customer" type="button" class="btn-chucnang-sap-xep btn btn-info mb-3 text-white">
-              Sắp xếp tăng dần
-            </button>
-
-            <button id="btn-add-customer" type="button" class="btn-chucnang-sap-xep-diem-tang-dan btn btn-info mb-3 text-white">
-              Sắp xếp điểm tăng dần
-            </button>
-
-
+            <div id="id-title-type-customer">
+              <h1>
+                <i class="fa-solid fa-bag-shopping mr-3"></i>Danh sách khách
+                hàng
+              </h1>
+            </div>
           </div>
 
-          <div class="col-xl-1 col-lg-0 col-md-0"></div>
-
-          <div class="col-xl-7 col-lg-8 col-md-12 flex-md-column">
-            <div class="d-flex justify-content-end" aria-label="Basic mixed styles example">
-              <button id="btn-show-std" type="button" class="btn btn-outline-success ml-2 active">
+          <div class="col-12 flex-md-column mt-4 mb-5">
+            <div class="d-flex justify-content-start" aria-label="Basic mixed styles example">
+              <button id="btn-show-std" type="button" class="btn btn-sm btn-outline-success mr-2 active">
                 <i class="fa-solid fa-graduation-cap mr-3"></i> Danh sách sinh
                 viên
               </button>
-              <button id="btn-show-epl" type="button" class="btn btn-outline-success ml-2">
+              <button id="btn-show-epl" type="button" class="btn btn-sm btn-outline-success mr-2">
                 <i class="fa-solid fa-user mr-3"></i> Danh sách nhân viên
               </button>
-              <button id="btn-show-ctm" type="button" class="btn btn-outline-success ml-2">
+              <button id="btn-show-ctm" type="button" class="btn btn-sm btn-outline-success mr-2">
                 <i class="fa-solid fa-bag-shopping mr-3"></i> Danh sách khách
                 hàng
               </button>
             </div>
           </div>
-        </div>
+          <div class="col-12 mt-5 pt-5">
+            <div class="row">
+              <div class="col-lg-8 col-sm-12">
+                <button id="btn-add-student" type="button"
+                  class="btn-chucnang-them btn btn-sm btn-primary mb-3 text-white" data-toggle="modal"
+                  data-target="#exampleModal">
+                  Thêm Sinh Viên
+                </button>
 
-        <div class="input-group mb-4 mt-4">
-          <input type="search" placeholder="Bạn đang tìm kiếm điều gì?" aria-describedby="button-addon6"
-            class="form-control" />
-          <div class="input-group-append">
-            <button id="button-addon6" type="submit" class="btn btn-info">
-              <i class="fa fa-search"></i>
-            </button>
+                <button id="btn-add-employee" type="button"
+                  class="btn-chucnang-them btn btn-sm btn-primary mb-3 text-white" data-toggle="modal"
+                  data-target="#exampleModal">
+                  Thêm Nhân Viên
+                </button>
+
+                <button id="btn-add-customer" type="button"
+                  class="btn-chucnang-them btn btn-sm btn-primary mb-3 text-white" data-toggle="modal"
+                  data-target="#exampleModal">
+                  Thêm Khách Hàng
+                </button>
+
+
+                <button id="btn-chuc-nang-sap-xep-ten-giam-dan-student" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Tên từ A đến Z
+                </button>
+                <button id="btn-chuc-nang-sap-xep-diem-toan-giam-dan-student" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Điểm Toán giảm dần
+                </button>
+
+                <button id="btn-chuc-nang-sap-xep-diem-ly-giam-dan-student" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Điểm Lý giảm dần
+                </button>
+
+                <button id="btn-chuc-nang-sap-xep-diem-hoa-giam-dan-student" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Điểm Hoá giảm dần
+                </button>
+                <button id="btn-chuc-nang-sap-xep-diem-trung-binh-giam-dan-student" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Điểm TB giảm dần
+                </button>
+
+
+
+                <button id="btn-chuc-nang-sap-xep-ten-giam-dan-employee" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Tên từ A đến Z
+                </button>
+                <button id="btn-chuc-nang-sap-xep-so-ngay-lam-viec-giam-dan-employee" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Ngày làm việc giảm dần
+                </button>
+                <button id="btn-chuc-nang-sap-xep-luong-tren-ngay-giam-dan-employee" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Lương/Ngày giảm dần
+                </button>
+                <button id="btn-chuc-nang-sap-xep-luong-giam-dan-employee" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Lương giảm dần
+                </button>
+
+
+
+
+                <button id="btn-chuc-nang-sap-xep-ten-giam-dan-customer" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Tên từ A đến Z
+                </button>
+                <button id="btn-chuc-nang-sap-xep-tri-gia-hoa-don-giam-dan-customer" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Trị giá hoá đơn giảm dần
+                </button>
+                <button id="btn-chuc-nang-sap-xep-danh-gia-giam-dan-customer" type="button"
+                  class="btn-chucnang-sap-xep btn btn-sm btn-info mb-3 text-white">
+                  Đánh giá giảm dần
+                </button>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="input-group">
+                  <input type="search" placeholder="Bạn đang tìm kiếm điều gì?" aria-describedby="button-addon6"
+                    class="form-control" id="input-search-keyword" />
+                  <div class="input-group-append">
+                    <button id="button-addon6" type="submit" class="btn btn-sm btn-info">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="table-responsive ">
+
+
+        <div class="table-responsive">
           <table class="table table-striped table-sm mt-2 table-student" id="table-student">
             <thead class="text-center rounded">
               <tr class="bg-success text-white">
@@ -166,8 +225,6 @@
     </div>
   </div>
 
-
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     data-backdrop="static">
@@ -195,8 +252,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="inputId">Mã</label>
-                  <input type="text" class="form-control" id="inputId" placeholder="Hệ thống tự động tạo mã" required
-                    disabled />
+                  <input type="text" class="form-control" id="inputId" placeholder="Nhập mã" required />
                   <div id="statusId" class="status"></div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -276,13 +332,13 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn-close-modal">
+            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" id="btn-close-modal">
               Close
             </button>
-            <button type="button" class="btn btn-warning" id="btn-update-data" onclick="updateDataPerson()">
+            <button type="button" class="btn btn-sm btn-warning" id="btn-update-data" onclick="updateDataPerson()">
               Cập Nhật
             </button>
-            <button type="button" class="btn btn-primary" id="btn-add-new-person">
+            <button type="button" class="btn btn-sm btn-primary" id="btn-add-new-person">
               Thêm
             </button>
           </div>
@@ -298,7 +354,6 @@
       <div class="toast-body" id="my-toast-body"></div>
     </div>
   </div>
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
     integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="

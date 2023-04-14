@@ -1,18 +1,17 @@
 export class Validation {
-  constructor() {
-    this.inputName = document.getElementById("inputName");
-    this.inputAddress = document.getElementById("inputAddress");
-    this.inputEmail = document.getElementById("inputEmail");
-    this.inputMath = document.getElementById("inputMath");
-    this.inputPhysics = document.getElementById("inputPhysics");
-    this.inputChemistry = document.getElementById("inputChemistry");
-    this.inputNumberOfWorkingDay = document.getElementById(
-      "inputNumberOfWorkingDay"
-    );
-    this.inputDailyWage = document.getElementById("inputDailyWage");
-    this.inputCompanyName = document.getElementById("inputCompanyName");
-    this.inputInvoiceinput = document.getElementById("inputInvoiceValue");
-    this.inputRate = document.getElementById("inputRate");
+  constructor(dom) {
+    this.dom = this.dom;
+    this.inputName = dom.inputName;
+    this.inputAddress = dom.inputAddress;
+    this.inputEmail = dom.inputEmail;
+    this.inputMath = dom.inputMath;
+    this.inputPhysics = dom.inputPhysics;
+    this.inputChemistry = dom.inputChemistry;
+    this.inputNumberOfWorkingDay = dom.inputNumberOfWorkingDay;
+    this.inputDailyWage = dom.inputDailyWage;
+    this.inputCompanyName = dom.inputCompanyName;
+    this.inputInvoiceinput = dom.inputInvoiceValue;
+    this.inputRate = dom.inputRate;
 
     // Bind the `this` context for the `validateForm()` method
     this.validateForm = this.validateForm.bind(this);
@@ -173,12 +172,10 @@ export class Validation {
       }
     }
 
-    let toastBody = document.getElementById("my-toast-body");
-
     if (valid) {
       this.notification = "Thông tin người dùng hợp lệ.";
     } else {
-      toastBody.innerHTML = this.notification;
+      this.dom.myToastBody.innerHTML = this.notification;
     }
 
     return valid;
